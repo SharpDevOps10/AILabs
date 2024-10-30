@@ -107,7 +107,7 @@ def calculate_error(y_true, y_pred):
     return np.sqrt(np.mean((y_true - y_pred) ** 2))
 
 
-def begin(function, start, finish, slices, label, diagonal=False):
+def main(function, start, finish, slices, label, diagonal=False):
     mx, my, mf = create_fuzzy_variables(function, start, finish, slices)
     if diagonal:
         rules = create_fuzzy_rules_diagonal(mx, my, mf)
@@ -161,6 +161,6 @@ def begin(function, start, finish, slices, label, diagonal=False):
 
 # Запуск для різних типів функцій
 for func_type in ["Triangle", "Trapezia", "Gauss"]:
-    begin(func_type, 0.7, np.pi / 2, 6, func_type)
+    main(func_type, 0.7, np.pi / 2, 6, func_type)
     if func_type == 'Gauss':
-        begin(func_type, 0.7, np.pi / 2, 6, func_type, diagonal=True)
+        main(func_type, 0.7, np.pi / 2, 6, func_type, diagonal=True)
